@@ -286,6 +286,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5629464872527876577, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: m_CallbackLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629464872527876577, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: m_ForceSendLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629464872527876577, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: m_ForceReceiveLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629464872527876577, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: m_ContactCaptureLayers.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338184184584571871, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: m_CallbackLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338184184584571871, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: m_ContactCaptureLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
