@@ -1,24 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer)), RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer)), RequireComponent(typeof(Animator)), RequireComponent(typeof(PlayerManager))]
 public class PlayerMovements : MonoBehaviour
 {
-    private readonly float _speed = .15f;
-
     private SpriteRenderer _sr;
     private Animator _animator;
+    private PlayerManager _pm;
 
     private void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _pm = GetComponent<PlayerManager>();
     }
 
     private void FixedUpdate()
     {
         /** --- Move player along 2D axis ----------------------------------*/
-        float moveH = Input.GetAxis("Horizontal") * _speed;
-        float moveV = Input.GetAxis("Vertical") * _speed;
+        float moveH = Input.GetAxis("Horizontal") * _pm.Speed * Time.deltaTime;
+        float moveV = Input.GetAxis("Vertical") * _pm.Speed * Time.deltaTime;
 
         transform.Translate(new Vector2(moveH, moveV));
 

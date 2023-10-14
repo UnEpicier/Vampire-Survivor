@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public float Health = 100f;
-    public float Speed = 10f;
+    public int Health = 100;
+    public int MaxHealth = 100;
+    public float Speed = 2f;
     public int Exp = 0;
     public int Level = 1;
 
@@ -17,6 +18,29 @@ public class PlayerManager : MonoBehaviour
         {
             Exp -= Level * 10;
             Level++;
+        }
+    }
+
+    public void TakeDamage(int value)
+    {
+        Health -= value;
+        if (Health < 0)
+        {
+            Health = 0;
+
+            // Death animation + menu
+        } else
+        {
+            // Damage animation
+        }
+    }
+
+    public void Heal(int value)
+    {
+        Health += value;
+        if (Health > MaxHealth)
+        {
+            Health = MaxHealth;
         }
     }
 }
