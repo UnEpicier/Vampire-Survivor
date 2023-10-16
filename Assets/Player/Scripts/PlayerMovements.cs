@@ -7,6 +7,8 @@ public class PlayerMovements : MonoBehaviour
     private Animator _animator;
     private PlayerManager _pm;
 
+    public bool lookOnRight = true;
+
     private void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
@@ -26,9 +28,11 @@ public class PlayerMovements : MonoBehaviour
         if (moveH < 0)
         {
             _sr.flipX = true;
+            lookOnRight = false;
         } else if (moveH > 0)
         {
             _sr.flipX = false;
+            lookOnRight = true;
         }
 
         /** --- update animator -------------------------------------------*/

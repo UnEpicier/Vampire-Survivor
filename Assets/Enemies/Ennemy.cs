@@ -5,19 +5,29 @@ using UnityEngine;
     RequireComponent(typeof(Animator)),
     RequireComponent(typeof(BoxCollider2D))
 ]
-public class Enemy : MonoBehaviour
+public class Ennemy : MonoBehaviour
 {
     private SpriteRenderer _sr;
     private Transform _player;
 
     public float Speed = .1f;
     public int Damages = 1;
+    public int Life = 100;
 
     private void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
 
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    private void Update()
+    {
+        if (Life <= 0)
+        {
+            Destroy(gameObject);
+            _player.GetComponent<PlayerManager>().MayorKills++;
+        }
     }
 
     private void FixedUpdate()

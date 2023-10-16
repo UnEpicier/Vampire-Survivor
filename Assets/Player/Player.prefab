@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3787322971358149925}
   - component: {fileID: 7397454076540391921}
   - component: {fileID: 8339747699126584523}
+  - component: {fileID: 2991086602376010793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -232,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f5e7611866dce4ab320c814d279d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookOnRight: 1
 --- !u!114 &7397454076540391921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +263,23 @@ MonoBehaviour:
   Speed: 2
   Exp: 0
   Level: 1
+  MayorKills: 0
   pauseMenu: {fileID: 1161238801143918071}
+--- !u!114 &2991086602376010793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784956759114531697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce23672c2f6b5bd42adf4a7776a52005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laser: {fileID: 4893257253370123985, guid: 95cb513377bf0e248bd66d6f7ddae920, type: 3}
+  laserOnX: 0
+  laserOnY: 0
 --- !u!1001 &1611953582756194365
 PrefabInstance:
   m_ObjectHideFlags: 0

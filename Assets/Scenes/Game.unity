@@ -364,6 +364,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2991086602376010793, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: laserOnX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2991086602376010793, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
+      propertyPath: laserOnY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3622515600777588477, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

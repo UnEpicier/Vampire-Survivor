@@ -10,6 +10,9 @@ public class PlayerManager : MonoBehaviour
     public int Exp = 0;
     public int Level = 1;
 
+    // Kills stats
+    public int MayorKills = 0;
+
     [SerializeField]
     private GameObject pauseMenu;
 
