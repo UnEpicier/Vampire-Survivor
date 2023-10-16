@@ -10,6 +10,18 @@ public class PlayerManager : MonoBehaviour
     public int Exp = 0;
     public int Level = 1;
 
+    [SerializeField]
+    private GameObject pauseMenu;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
     public void AddExperience(int value)
     {
         Exp += value;
