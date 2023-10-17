@@ -2,20 +2,34 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    // Character stats
     public int Health = 100;
     public int MaxHealth = 100;
+    public int HealValue = 1;
     public float Speed = 2f;
     public int Exp = 0;
     public int Level = 1;
 
+    // Weapons stats
+    public int BeamDamages = 50;
+    public int SwordsDamages = 25;
+    public int ArrowDamages = 15;
+
     // Kills stats
     public int MayorKills = 0;
+    public int MinautorKills = 0;
+    public int BringerOfDeathKills = 0;
 
     [SerializeField]
     private GameObject pauseMenu;
 
     [SerializeField]
     private GameObject deathScreen;
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(Heal), 1f, 1f);
+    }
 
     private void Update()
     {
@@ -37,6 +51,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // --- CHARACTER STATS ---------------------------------------------------------------------
     public void TakeDamage(int value)
     {
         Health -= value;
@@ -53,9 +68,9 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void Heal(int value)
+    public void Heal()
     {
-        Health += value;
+        Health += HealValue;
         if (Health > MaxHealth)
         {
             Health = MaxHealth;

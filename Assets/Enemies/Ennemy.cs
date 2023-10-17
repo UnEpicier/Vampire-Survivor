@@ -28,7 +28,18 @@ public class Ennemy : MonoBehaviour
         if (Life <= 0)
         {
             Destroy(gameObject);
-            _player.GetComponent<PlayerManager>().MayorKills++;
+            if (gameObject.name.Contains("Mayor"))
+            {
+                _player.GetComponent<PlayerManager>().MayorKills++;
+            }
+            else if (gameObject.name.Contains("Minotaur"))
+            {
+                _player.GetComponent<PlayerManager>().MinautorKills++;
+            }
+            else if(gameObject.name.Contains("Bringer of Death"))
+            {
+                _player.GetComponent<PlayerManager>().BringerOfDeathKills++;
+            }
         }
     }
 
