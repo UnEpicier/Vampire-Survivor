@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 [
@@ -52,6 +54,7 @@ public class Ennemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             InvokeRepeating(nameof(AttackPlayer), 0, 1f);
+            _player.GetComponent<PlayerCollisions>().AnimateHit();
         }
     }
 
@@ -66,5 +69,21 @@ public class Ennemy : MonoBehaviour
     private void AttackPlayer()
     {
         _player.GetComponent<PlayerManager>().TakeDamage(Damages);
+    }
+
+    public void AnimateHit()
+    {
+        StartCoroutine(IAnimateHit());
+    }
+
+    private IEnumerator IAnimateHit()
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0f);
+            yield return new WaitForSeconds(.1f);
+            _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 1f);
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }

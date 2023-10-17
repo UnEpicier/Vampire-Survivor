@@ -28,6 +28,7 @@ public class Sword : MonoBehaviour
         if (collision.CompareTag("Ennemy") && collision.gameObject != null)
         {
             collision.GetComponent<Ennemy>().Life -= Damages;
+            collision.gameObject.GetComponent<Ennemy>().AnimateHit();
         }
     }
 }

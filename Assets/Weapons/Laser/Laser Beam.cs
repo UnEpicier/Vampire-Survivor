@@ -18,6 +18,7 @@ public class LaserBeam : MonoBehaviour
         if (collision.CompareTag("Ennemy"))
         {
             collision.gameObject.GetComponent<Ennemy>().Life -= Damages;
+            collision.gameObject.GetComponent<Ennemy>().AnimateHit();
         }
     }
 
