@@ -6,7 +6,7 @@ public class LaserBeam : MonoBehaviour
 {
     public int Damages = 50;
 
-    public float lifeSeconds = 1f;
+    public float lifeSeconds = .5f;
 
     public void Start()
     {
