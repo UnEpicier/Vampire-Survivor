@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,8 +18,15 @@ public class LaserBeam : MonoBehaviour
     {
         if (collision.CompareTag("Ennemy"))
         {
-            collision.gameObject.GetComponent<Ennemy>().Life -= Damages;
             collision.gameObject.GetComponent<Ennemy>().AnimateHit();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ennemy"))
+        {
+            collision.gameObject.GetComponent<Ennemy>().Life -= (int)(Damages * Time.deltaTime);
         }
     }
 

@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamage(int value)
     {
         Health -= value;
-        if (Health < 0)
+        if (Health <= 0)
         {
             Health = 0;
 
