@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -15,6 +13,9 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField]
     private GameObject pauseMenu;
+
+    [SerializeField]
+    private GameObject deathScreen;
 
     private void Update()
     {
@@ -44,6 +45,8 @@ public class PlayerManager : MonoBehaviour
             Health = 0;
 
             // Death animation + menu
+            Time.timeScale = 0f;
+            deathScreen.GetComponent<DeathScreen>().ShowScreen();
         } else
         {
             // Damage animation
