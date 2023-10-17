@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public int Damages = 10;
+    public int Damages = 15;
 
     public GameObject target;
 

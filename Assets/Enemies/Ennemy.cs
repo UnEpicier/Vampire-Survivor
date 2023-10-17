@@ -51,7 +51,6 @@ public class Ennemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("ASSETT");
             InvokeRepeating(nameof(AttackPlayer), 0, 1f);
         }
     }
