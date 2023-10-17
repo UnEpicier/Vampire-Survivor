@@ -5,8 +5,16 @@ public class Sword : MonoBehaviour
 {
     public int Damages = 25;
 
+    private PlayerManager _manager;
+
+    private void Start()
+    {
+        _manager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+    }
+
     private void Update()
     {
+        Damages = _manager.SwordsDamages;
         RotateSword();
     }
 

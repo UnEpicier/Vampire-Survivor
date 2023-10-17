@@ -11,17 +11,21 @@ public class PlayerWeapons : MonoBehaviour
     [SerializeField] private GameObject arrow;
 
     private PlayerMovements _pm;
+    private PlayerManager _manager;
 
     private void Start()
     {
         _pm = GetComponent<PlayerMovements>();
+        _manager = GetComponent<PlayerManager>();
+
         InvokeRepeating(nameof(ShootBeam), 5f, 5f);
         InvokeRepeating(nameof(ShootArrow), 2f, 2f);
     }
 
     private void ShootBeam()
     {
-        Instantiate(laser, transform.position, _pm.lookOnRight ? Quaternion.identity : Quaternion.Euler(0, 0, 180), transform);
+        GameObject defaultBeam = Instantiate(laser, transform.position, _pm.lookOnRight ? Quaternion.identity : Quaternion.Euler(0, 0, 180), transform);
+        defaultBeam.GetComponent<LaserBeam>().Damages = _manager.BeamDamages;
 
         if (laserOnX)
         {
@@ -64,25 +68,7 @@ public class PlayerWeapons : MonoBehaviour
         {
             GameObject spawnedArrow = Instantiate(arrow, transform.position, Quaternion.identity);
             spawnedArrow.GetComponent<Arrow>().target = target;
+            spawnedArrow.GetComponent<Arrow>().Damages = _manager.ArrowDamages;
         }
-    }
-
-    GameObject GetClosestEnemy(GameObject[] enemies)
-    {
-        GameObject bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
-        Vector3 currentPosition = transform.position;
-        foreach (GameObject potentialTarget in enemies)
-        {
-            Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialTarget;
-            }
-        }
-
-        return bestTarget;
     }
 }
