@@ -29,12 +29,6 @@ public class PlayerManager : MonoBehaviour
     public float laserOnX = 0f;
     public float laserOnY = 0f;
 
-    // Kills stats
-    [Header("Kills Stats")]
-    public int MayorKills = 0;
-    public int MinautorKills = 0;
-    public int BringerOfDeathKills = 0;
-
     [SerializeField]
     private GameObject pauseMenu;
     [SerializeField]
@@ -66,20 +60,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void AddExperience(int value)
-    {
-        Exp += value;
-
-        if (Exp >= Level * 10)
-        {
-            Exp -= Level * 10;
-            Level++;
-            Time.timeScale = 0f;
-            _upgradeScreen.SetActive(true);
-            _upgradeScreen.GetComponentInChildren<UpgradeScreen>().GenerateChoice();
-        }
-    }
-
     // --- CHARACTER STATS ---------------------------------------------------------------------
     public void TakeDamage(int value)
     {
@@ -91,6 +71,20 @@ public class PlayerManager : MonoBehaviour
             Time.timeScale = 0f;
             deathScreen.SetActive(true);
             deathScreen.GetComponent<DeathScreen>().ShowScreen();
+        }
+    }
+    
+    public void AddExperience(int value)
+    {
+        Exp += value;
+
+        if (Exp >= Level * 10)
+        {
+            Exp -= Level * 10;
+            Level++;
+            Time.timeScale = 0f;
+            _upgradeScreen.SetActive(true);
+            _upgradeScreen.GetComponentInChildren<UpgradeScreen>().GenerateChoice();
         }
     }
 

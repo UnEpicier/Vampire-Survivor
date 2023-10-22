@@ -43,7 +43,7 @@ public class Ennemy : MonoBehaviour
             Destroy(gameObject);
             if (gameObject.name.Contains("Mayor"))
             {
-                _player.GetComponent<PlayerManager>().MayorKills++;
+                GameManager.MayorKills++;
                 for(int i = 0; i < 5; i++)
                 {
                     Instantiate(_orb, transform.position, Quaternion.identity);
@@ -51,7 +51,7 @@ public class Ennemy : MonoBehaviour
             }
             else if (gameObject.name.Contains("Minautor"))
             {
-                _player.GetComponent<PlayerManager>().MinautorKills++;
+                GameManager.MinautorKills++;
                 for (int i = 0; i < 5; i++)
                 {
                     GameObject _spawnedOrb = Instantiate(_orb, transform.position, Quaternion.identity);
@@ -60,7 +60,7 @@ public class Ennemy : MonoBehaviour
             }
             else if(gameObject.name.Contains("Bringer of Death"))
             {
-                _player.GetComponent<PlayerManager>().BringerOfDeathKills++;
+                GameManager.BringerOfDeathKills++;
                 for (int i = 0; i < 2; i++)
                 {
                     GameObject _spawnedOrb = Instantiate(_orb, transform.position, Quaternion.identity);
