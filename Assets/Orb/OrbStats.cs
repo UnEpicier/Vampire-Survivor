@@ -18,6 +18,8 @@ public class OrbStats : MonoBehaviour
         _sr = GetComponent<SpriteRenderer>();
 
         transform.Translate(new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)));
+
+        Invoke(nameof(DestroyAfterTime), 15f);
     }
 
     private void Update()
@@ -34,5 +36,10 @@ public class OrbStats : MonoBehaviour
                 _sr.color = new Color(1f, 0.23f, 0.71f);
                 break;
         }
+    }
+    
+    private void DestroyAfterTime()
+    {
+        Destroy(gameObject);
     }
 }
