@@ -69,6 +69,16 @@ public class UpgradeScreen : MonoBehaviour
 
                 field.SetValue(manager, fieldValue + upgrades[i].value);
 
+                if (
+                    (upgrades[i].maxValue > 0 && fieldValue + upgrades[i].value >= upgrades[i].maxValue) ||
+                    (upgrades[i].maxValue < 0 && fieldValue + upgrades[i].value <= upgrades[i].maxValue)
+                )
+                {
+                    List<Upgrade> upgradesList = new(_upgrades);
+                    upgradesList.RemoveAt(i);
+                    _upgrades = upgradesList.ToArray();
+                }
+
                 Time.timeScale = 1f;
                 button.transform.parent.parent.parent.gameObject.SetActive(false);
             }

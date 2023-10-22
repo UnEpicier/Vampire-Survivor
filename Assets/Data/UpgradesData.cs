@@ -17,6 +17,7 @@ public class Upgrade
 {
     public string name;
     public string paramName;
+    public float maxValue;
     public float value;
 }
 

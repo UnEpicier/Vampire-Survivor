@@ -23,8 +23,8 @@ public class PlayerManager : MonoBehaviour
     public float SwordsQuantity = 5f;
 
     public float ArrowDamages = 15f;
-    public float ArrowRange = 5f;
     public float ArrowFrequency = 2f;
+    public float ArrowRange = 5f;
 
     public float laserOnX = 0f;
     public float laserOnY = 0f;
