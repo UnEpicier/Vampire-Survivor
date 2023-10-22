@@ -11,7 +11,8 @@ public class Ennemy : MonoBehaviour
     private SpriteRenderer _sr;
     private Transform _player;
 
-    public float Life = 100;
+    public static float StartLife = 100;
+    public float Life;
     public float Speed = .1f;
     public int Damages = 1;
 
@@ -19,6 +20,7 @@ public class Ennemy : MonoBehaviour
 
     private void Awake()
     {
+        Life = StartLife;
         if (transform.parent != null)
         {
             transform.parent = null;
@@ -30,6 +32,8 @@ public class Ennemy : MonoBehaviour
         _sr = GetComponent<SpriteRenderer>();
 
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        InvokeRepeating(nameof(UpgradeSelf), 2f, 10f);
     }
 
     private void Update()
@@ -124,5 +128,11 @@ public class Ennemy : MonoBehaviour
             _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 1f);
             yield return new WaitForSeconds(.1f);
         }
+    }
+
+    private void UpgradeSelf()
+    {
+        Damages += 15;
+        StartLife += 5;
     }
 }
