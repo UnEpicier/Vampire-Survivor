@@ -12,9 +12,11 @@ public class Ennemy : MonoBehaviour
     private SpriteRenderer _sr;
     private Transform _player;
 
+    public float Life = 100;
     public float Speed = .1f;
     public int Damages = 1;
-    public int Life = 100;
+
+    [SerializeField] private GameObject _orb;
 
     private void Start()
     {
@@ -31,14 +33,33 @@ public class Ennemy : MonoBehaviour
             if (gameObject.name.Contains("Mayor"))
             {
                 _player.GetComponent<PlayerManager>().MayorKills++;
+                for(int i = 0; i < 5; i++)
+                {
+                    Instantiate(_orb, transform.position, Quaternion.identity);
+                }
             }
-            else if (gameObject.name.Contains("Minotaur"))
+            else if (gameObject.name.Contains("Minautor"))
             {
                 _player.GetComponent<PlayerManager>().MinautorKills++;
+                for (int i = 0; i < 5; i++)
+                {
+                    GameObject _spawnedOrb = Instantiate(_orb, transform.position, Quaternion.identity);
+                    _spawnedOrb.GetComponent<OrbStats>().OrbValue = OrbValues.Ten;
+                }
             }
             else if(gameObject.name.Contains("Bringer of Death"))
             {
                 _player.GetComponent<PlayerManager>().BringerOfDeathKills++;
+                for (int i = 0; i < 2; i++)
+                {
+                    GameObject _spawnedOrb = Instantiate(_orb, transform.position, Quaternion.identity);
+                    _spawnedOrb.GetComponent<OrbStats>().OrbValue = OrbValues.Hundred;
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    GameObject _spawnedOrb = Instantiate(_orb, transform.position, Quaternion.identity);
+                    _spawnedOrb.GetComponent<OrbStats>().OrbValue = OrbValues.Ten;
+                }
             }
         }
     }

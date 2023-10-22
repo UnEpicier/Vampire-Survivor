@@ -1,38 +1,84 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [RequireComponent (typeof(PlayerMovements))]
 public class PlayerWeapons : MonoBehaviour
 {
     [SerializeField] private GameObject laser;
-    [SerializeField] private bool laserOnX;
-    [SerializeField] private bool laserOnY;
 
     [SerializeField] private GameObject arrow;
 
     private PlayerMovements _pm;
     private PlayerManager _manager;
 
+    private float oldBeamFrequency;
+    private bool oldBeamX;
+    private bool oldBeamY;
+
+    private float oldArrowFrequency;
+
     private void Start()
     {
         _pm = GetComponent<PlayerMovements>();
         _manager = GetComponent<PlayerManager>();
 
-        InvokeRepeating(nameof(ShootBeam), 5f, 5f);
-        InvokeRepeating(nameof(ShootArrow), 2f, 2f);
+        oldBeamFrequency = _manager.BeamFrequency;
+        oldBeamX = Convert.ToBoolean(_manager.laserOnX);
+        oldBeamY = Convert.ToBoolean(_manager.laserOnY);
+        oldArrowFrequency = _manager.ArrowFrequency;
+
+        InvokeRepeating(nameof(ShootBeam), _manager.BeamFrequency, _manager.BeamFrequency);
+        InvokeRepeating(nameof(ShootArrow), _manager.ArrowFrequency, _manager.ArrowFrequency);
+    }
+
+    private void FixedUpdate()
+    {
+        if (_manager.BeamFrequency != oldBeamFrequency)
+        {
+            if (_manager.BeamFrequency > 0f)
+            {
+                CancelInvoke(nameof(ShootBeam));
+                InvokeRepeating(nameof(ShootBeam), _manager.BeamFrequency, _manager.BeamFrequency);
+            }
+            else
+            {
+                CancelInvoke(nameof(ShootBeam));
+                ShootBeam();
+            }
+            oldBeamFrequency = _manager.BeamFrequency;
+        }
+
+        if (_manager.BeamFrequency == 0)
+        {
+            if (oldBeamX != Convert.ToBoolean(_manager.laserOnX) || oldBeamY != Convert.ToBoolean(_manager.laserOnY))
+            {
+                foreach (var beam in GameObject.FindGameObjectsWithTag("Beam"))
+                {
+                    Destroy(beam);
+                }
+                oldBeamX = Convert.ToBoolean(_manager.laserOnX);
+                oldBeamY = Convert.ToBoolean(_manager.laserOnY);
+                ShootBeam();
+            }
+        }
+
+        if (_manager.ArrowFrequency != oldArrowFrequency)
+        {
+            CancelInvoke(nameof(ShootArrow));
+            InvokeRepeating(nameof(ShootArrow), _manager.ArrowFrequency, _manager.ArrowFrequency);
+        }
     }
 
     private void ShootBeam()
     {
-        GameObject defaultBeam = Instantiate(laser, transform.position, _pm.lookOnRight ? Quaternion.identity : Quaternion.Euler(0, 0, 180), transform);
-        defaultBeam.GetComponent<LaserBeam>().Damages = _manager.BeamDamages;
+        Instantiate(laser, transform.position, Quaternion.identity, transform);
 
-        if (laserOnX)
+        if (_manager.laserOnX > 0)
         {
-            Instantiate(laser, transform.position, _pm.lookOnRight ? Quaternion.Euler(0, 0, 180) : Quaternion.identity, transform);
+            Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 180), transform);
         }
 
-        if (laserOnY)
+        if (_manager.laserOnY > 0)
         {
             Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 90), transform);
             Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 270), transform);
@@ -43,7 +89,7 @@ public class PlayerWeapons : MonoBehaviour
     private void ShootArrow()
     {
         // Get all enemies in given radius
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 20f, LayerMask.GetMask("Enemy"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _manager.ArrowRange, LayerMask.GetMask("Enemy"));
 
         if (hits.Length <= 0)
         {
@@ -68,7 +114,6 @@ public class PlayerWeapons : MonoBehaviour
         {
             GameObject spawnedArrow = Instantiate(arrow, transform.position, Quaternion.identity);
             spawnedArrow.GetComponent<Arrow>().target = target;
-            spawnedArrow.GetComponent<Arrow>().Damages = _manager.ArrowDamages;
         }
     }
 }

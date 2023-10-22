@@ -3,28 +3,44 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     // Character stats
-    public int Health = 100;
-    public int MaxHealth = 100;
-    public int HealValue = 1;
+    [Header("Character Stats")]
+    public float Health = 100f;
+    public float MaxHealth = 100f;
+    public float HealValue = 1f;
     public float Speed = 2f;
-    public int Exp = 0;
-    public int Level = 1;
+    public float Exp = 0f;
+    public float Level = 1f;
+    public float OrbAbsorberRadius = 0.7f;
 
     // Weapons stats
-    public int BeamDamages = 50;
-    public int SwordsDamages = 25;
-    public int ArrowDamages = 15;
+    [Header("Weapons Stats")]
+    public float BeamDamages = 50f;
+    public float BeamFrequency = 5f;
+    public float BeamLife = 0.5f;
+
+    public float SwordsHaloRadius = 1f;
+    public float SwordsDamages = 25f;
+    public float SwordsQuantity = 5f;
+
+    public float ArrowDamages = 15f;
+    public float ArrowRange = 5f;
+    public float ArrowFrequency = 2f;
+
+    public float laserOnX = 0f;
+    public float laserOnY = 0f;
 
     // Kills stats
+    [Header("Kills Stats")]
     public int MayorKills = 0;
     public int MinautorKills = 0;
     public int BringerOfDeathKills = 0;
 
     [SerializeField]
     private GameObject pauseMenu;
-
     [SerializeField]
     private GameObject deathScreen;
+    [SerializeField]
+    private GameObject _upgradeScreen;
 
     private void Start()
     {
@@ -33,6 +49,16 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        if (BeamFrequency < 0f)
+        {
+            BeamFrequency = 0f;
+        }
+
+        if (ArrowFrequency < 0.5f)
+        {
+            ArrowFrequency = 0.5f;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
@@ -48,6 +74,9 @@ public class PlayerManager : MonoBehaviour
         {
             Exp -= Level * 10;
             Level++;
+            Time.timeScale = 0f;
+            _upgradeScreen.SetActive(true);
+            _upgradeScreen.GetComponentInChildren<UpgradeScreen>().GenerateChoice();
         }
     }
 
@@ -59,12 +88,9 @@ public class PlayerManager : MonoBehaviour
         {
             Health = 0;
 
-            // Death animation + menu
             Time.timeScale = 0f;
+            deathScreen.SetActive(true);
             deathScreen.GetComponent<DeathScreen>().ShowScreen();
-        } else
-        {
-            // Damage animation
         }
     }
 

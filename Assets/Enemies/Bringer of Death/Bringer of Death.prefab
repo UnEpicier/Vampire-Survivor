@@ -196,3 +196,4 @@ MonoBehaviour:
   Speed: 1
   Damages: 100
   Life: 1000
+  _orb: {fileID: 4247841200454641178, guid: 5f995817aeb7ddc4e841633e73c7ff59, type: 3}

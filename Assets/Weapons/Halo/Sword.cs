@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent (typeof(BoxCollider2D))]
 public class Sword : MonoBehaviour
 {
-    public int Damages = 25;
-
     private PlayerManager _manager;
 
     private void Start()
@@ -14,7 +12,6 @@ public class Sword : MonoBehaviour
 
     private void Update()
     {
-        Damages = _manager.SwordsDamages;
         RotateSword();
     }
 
@@ -35,7 +32,7 @@ public class Sword : MonoBehaviour
     {
         if (collision.CompareTag("Ennemy") && collision.gameObject != null)
         {
-            collision.GetComponent<Ennemy>().Life -= Damages;
+            collision.GetComponent<Ennemy>().Life -= _manager.SwordsDamages;
             collision.gameObject.GetComponent<Ennemy>().AnimateHit();
         }
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Orb
   - Ennemy
+  - Beam
   layers:
   - Default
   - TransparentFX

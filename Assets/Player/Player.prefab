@@ -41,6 +41,7 @@ Transform:
   - {fileID: 4152598028236711869}
   - {fileID: 4740856695113674186}
   - {fileID: 1598670840411184170}
+  - {fileID: 749125587594098812}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4824869534615406026
@@ -262,12 +263,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   MaxHealth: 100
+  HealValue: 1
   Speed: 2
   Exp: 0
   Level: 1
+  BeamDamages: 50
+  BeamFequency: 5
+  SwordsDamages: 25
+  ArrowDamages: 15
+  ArrowRange: 5
+  ArrowFrequency: 2
+  laserOnX: 0
+  laserOnY: 0
   MayorKills: 0
+  MinautorKills: 0
+  BringerOfDeathKills: 0
   pauseMenu: {fileID: 1161238801143918071}
   deathScreen: {fileID: 8536456763282141865}
+  _upgradeScreen: {fileID: 3552072345333957438}
 --- !u!114 &2991086602376010793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,8 +294,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 4893257253370123985, guid: 95cb513377bf0e248bd66d6f7ddae920, type: 3}
-  laserOnX: 0
-  laserOnY: 0
   arrow: {fileID: 6280786298679187013, guid: 856a449688373494987701d49b79a7af, type: 3}
 --- !u!1001 &993819705047970090
 PrefabInstance:
@@ -292,10 +303,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3622515600777588477}
     m_Modifications:
-    - target: {fileID: -8230784050683220836, guid: fd7d128113472244d88a3fc511da99a0, type: 3}
-      propertyPath: initialSwordsCount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3957911104700806788, guid: fd7d128113472244d88a3fc511da99a0, type: 3}
       propertyPath: m_Name
       value: Halo
@@ -513,6 +520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Death Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 7779035698592798071, guid: be2de9e5d757ee447a79f8ad0528d930, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -527,4 +538,71 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779035698592798071, guid: be2de9e5d757ee447a79f8ad0528d930, type: 3}
   m_PrefabInstance: {fileID: 2126607160633550814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3519923663120457319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3622515600777588477}
+    m_Modifications:
+    - target: {fileID: 113215708914507097, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_Name
+      value: Upgrade Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+--- !u!4 &749125587594098812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+  m_PrefabInstance: {fileID: 3519923663120457319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3552072345333957438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 113215708914507097, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+  m_PrefabInstance: {fileID: 3519923663120457319}
   m_PrefabAsset: {fileID: 0}

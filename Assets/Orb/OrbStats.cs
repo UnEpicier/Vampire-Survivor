@@ -16,6 +16,8 @@ public class OrbStats : MonoBehaviour
     private void Start()
     {
         _sr = GetComponent<SpriteRenderer>();
+
+        transform.Translate(new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)));
     }
 
     private void Update()

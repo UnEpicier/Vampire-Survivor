@@ -5,13 +5,31 @@ using UnityEngine;
 [RequireComponent (typeof(BoxCollider2D))]
 public class LaserBeam : MonoBehaviour
 {
-    public int Damages = 50;
-
-    public float lifeSeconds = .2f;
+    private PlayerManager _manager;
+    private PlayerMovements _movements;
 
     public void Start()
     {
-        StartCoroutine(nameof(EndLifeAfterXSeconds));
+        _manager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        _movements = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovements>();
+        if (_manager.BeamFrequency > 0)
+        {
+            StartCoroutine(nameof(EndLifeAfterXSeconds));
+        }
+    }
+
+    private void Update()
+    {
+        if (_manager.laserOnX == 0)
+        {
+            if (!_movements.lookOnRight)
+            {
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            } else
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,13 +44,13 @@ public class LaserBeam : MonoBehaviour
     {
         if (collision.CompareTag("Ennemy"))
         {
-            collision.gameObject.GetComponent<Ennemy>().Life -= (int)(Damages * Time.deltaTime);
+            collision.gameObject.GetComponent<Ennemy>().Life -= (int)(_manager.BeamDamages * Time.deltaTime);
         }
     }
 
     private IEnumerator EndLifeAfterXSeconds()
     {
-        yield return new WaitForSeconds(lifeSeconds);
+        yield return new WaitForSeconds(_manager.BeamLife);
         Destroy(gameObject);
     }
 }

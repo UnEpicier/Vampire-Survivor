@@ -3,17 +3,25 @@ using UnityEngine;
 
 [
     RequireComponent(typeof(PlayerManager)),
-    RequireComponent(typeof(SpriteRenderer))
+    RequireComponent(typeof(SpriteRenderer)),
+    RequireComponent(typeof(CircleCollider2D))
 ]
 public class PlayerCollisions : MonoBehaviour
 {
-    private PlayerManager _pm;
+    private PlayerManager _manager;
     private SpriteRenderer _sr;
+    private CircleCollider2D _trigger;
 
     private void Start()
     {
-        _pm = GetComponent<PlayerManager>();
+        _manager = GetComponent<PlayerManager>();
         _sr = GetComponent<SpriteRenderer>();
+        _trigger = GetComponent<CircleCollider2D>();
+    }
+
+    private void Update()
+    {
+        _trigger.radius = _manager.OrbAbsorberRadius;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -39,7 +47,7 @@ public class PlayerCollisions : MonoBehaviour
 
             if (orb.transform.position == transform.position)
             {
-                _pm.AddExperience((int)orb.GetComponent<OrbStats>().OrbValue);
+                _manager.AddExperience((int)orb.GetComponent<OrbStats>().OrbValue);
             }
         }
     }

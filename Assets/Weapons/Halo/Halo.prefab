@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
-  initialSwordsCount: 10
+  initialSwordsCount: 5
   _sword: {fileID: 4974588604955100116, guid: d21b2e937bf67eb4c8fc3db75696d4ce, type: 3}

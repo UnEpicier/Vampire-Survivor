@@ -1,0 +1,74 @@
+{
+  "upgrades": [
+    {
+      "name": "Max health",
+      "paramName": "MaxHealth",
+      "value": 25
+    },
+    {
+      "name": "Heal quantity",
+      "paramName": "HealValue",
+      "value": 2
+    },
+    {
+      "name": "Movement speed",
+      "paramName": "Speed",
+      "value": 0.5
+    },
+    {
+      "name": "Orb Absorber radius",
+      "paramName": "OrbAbsorberRadius",
+      "value": 0.2
+    },
+    {
+      "name": "Beam damages",
+      "paramName": "BeamDamages",
+      "value": 15
+    },
+    {
+      "name": "Beam frequency",
+      "paramName": "BeamFrequency",
+      "value": -0.5
+    },
+    {
+      "name": "2 Horizontal beams",
+      "paramName": "laserOnX",
+      "value": 1
+    },
+    {
+      "name": "2 Vertical beams",
+      "paramName": "laserOnY",
+      "value": 1
+    },
+    {
+      "name": "Swords' Halo radius",
+      "paramName": "SwordsHaloRadius",
+      "value": 0.1
+    },
+    {
+      "name": "Swords damages",
+      "paramName": "SwordsDamages",
+      "value": 25
+    },
+    {
+      "name": "Swords quantity",
+      "paramName": "SwordsQuantity",
+      "value": 1
+    },
+    {
+      "name": "Arrow damages",
+      "paramName": "ArrowDamages",
+      "value": 15
+    },
+    {
+      "name": "Arrow range",
+      "paramName": "ArrowRange",
+      "value": 1
+    },
+    {
+      "name": "Arrow frequency",
+      "paramName": "ArrowFrequency",
+      "value": -0.5
+    }
+  ]
+}
