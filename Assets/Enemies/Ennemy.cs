@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 [
@@ -17,6 +16,14 @@ public class Ennemy : MonoBehaviour
     public int Damages = 1;
 
     [SerializeField] private GameObject _orb;
+
+    private void Awake()
+    {
+        if (transform.parent != null)
+        {
+            transform.parent = null;
+        }
+    }
 
     private void Start()
     {

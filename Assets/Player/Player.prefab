@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7397454076540391921}
   - component: {fileID: 8339747699126584523}
   - component: {fileID: 2991086602376010793}
+  - component: {fileID: 4761054675786854393}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -267,9 +268,13 @@ MonoBehaviour:
   Speed: 2
   Exp: 0
   Level: 1
+  OrbAbsorberRadius: 0.7
   BeamDamages: 50
-  BeamFequency: 5
+  BeamFrequency: 5
+  BeamLife: 0.5
+  SwordsHaloRadius: 1
   SwordsDamages: 25
+  SwordsQuantity: 5
   ArrowDamages: 15
   ArrowRange: 5
   ArrowFrequency: 2
@@ -295,6 +300,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 4893257253370123985, guid: 95cb513377bf0e248bd66d6f7ddae920, type: 3}
   arrow: {fileID: 6280786298679187013, guid: 856a449688373494987701d49b79a7af, type: 3}
+--- !u!114 &4761054675786854393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784956759114531697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6db2d9573175344fa4455c70d440232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mayor: {fileID: 0}
+  Minautor: {fileID: 0}
+  BringerOfDeath: {fileID: 0}
 --- !u!1001 &993819705047970090
 PrefabInstance:
   m_ObjectHideFlags: 0
