@@ -9,11 +9,11 @@ public class DeathScreen : MonoBehaviour
     private void Start()
     {
         _cg = GetComponent<CanvasGroup>();
+        StartCoroutine(IShowScreen());
     }
 
     public void ShowScreen()
     {
-        StartCoroutine(IShowScreen());
     }
 
     private IEnumerator IShowScreen()
