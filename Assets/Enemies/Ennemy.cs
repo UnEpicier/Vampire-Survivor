@@ -25,6 +25,11 @@ public class Ennemy : MonoBehaviour
         {
             transform.parent = null;
         }
+
+        if (transform.position.x < -22f || transform.position.y > 15f || transform.position.x > 25f || transform.position.y < -19.5f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
