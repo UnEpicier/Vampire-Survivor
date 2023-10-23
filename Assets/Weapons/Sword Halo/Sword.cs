@@ -30,10 +30,10 @@ public class Sword : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ennemy") && collision.gameObject != null)
+        if (collision.CompareTag("Enemy") && collision.gameObject != null)
         {
-            collision.GetComponent<Ennemy>().Life -= _manager.SwordsDamages;
-            collision.gameObject.GetComponent<Ennemy>().AnimateHit();
+            collision.GetComponent<Enemy>().Life -= _manager.SwordsDamages;
+            collision.gameObject.GetComponent<Enemy>().AnimateHit();
         }
     }
 }

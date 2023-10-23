@@ -33,17 +33,17 @@ public class Beam : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ennemy"))
+        if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Ennemy>().AnimateHit();
+            collision.gameObject.GetComponent<Enemy>().AnimateHit();
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ennemy"))
+        if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Ennemy>().Life -= (int)(_manager.BeamDamages * Time.deltaTime);
+            collision.gameObject.GetComponent<Enemy>().Life -= (int)(_manager.BeamDamages * Time.deltaTime);
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5506280093993411831}
   m_Layer: 6
   m_Name: Minautor
-  m_TagString: Ennemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b3c6920a262c94696eed7deeec570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Life: 500
   Speed: 0.7
   Damages: 75
-  Life: 500
   _orb: {fileID: 4247841200454641178, guid: 5f995817aeb7ddc4e841633e73c7ff59, type: 3}

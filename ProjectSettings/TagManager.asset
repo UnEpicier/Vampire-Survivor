@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Orb
-  - Ennemy
   - Beam
+  - Enemy
   layers:
   - Default
   - TransparentFX

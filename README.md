@@ -20,7 +20,7 @@ The player win after 15 minutes.
 - 3 differents attacks:
   - A temporary laser beam
   - A swords halo around the player
-  - An arrow that shoot the nearest ennemy
+  - An arrow that shoot the nearest enemy
 - Enemies
   - Differents specs (speed, health, damage)
   - Spawn randomly outside the player screen all along the game

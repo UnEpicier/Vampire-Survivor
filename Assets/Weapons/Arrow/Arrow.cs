@@ -23,10 +23,10 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ennemy"))
+        if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Ennemy>().Life -= _manager.ArrowDamages;
-            collision.gameObject.GetComponent<Ennemy>().AnimateHit();
+            collision.gameObject.GetComponent<Enemy>().Life -= _manager.ArrowDamages;
+            collision.gameObject.GetComponent<Enemy>().AnimateHit();
             Destroy(gameObject);
         }
         

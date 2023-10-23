@@ -36,9 +36,9 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        _spawnedMayors = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Mayor")).Length;
-        _spawnedMinautor = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Minautor")).Length;
-        _spawnedBringerOfDeath = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Bringer of Death")).Length;
+        _spawnedMayors = Array.FindAll(GameObject.FindGameObjectsWithTag("Enemy"), (value) => value.name.Contains("Mayor")).Length;
+        _spawnedMinautor = Array.FindAll(GameObject.FindGameObjectsWithTag("Enemy"), (value) => value.name.Contains("Minautor")).Length;
+        _spawnedBringerOfDeath = Array.FindAll(GameObject.FindGameObjectsWithTag("Enemy"), (value) => value.name.Contains("Bringer of Death")).Length;
     }
 
     private void SpawnWave()

@@ -6,7 +6,7 @@ using UnityEngine;
     RequireComponent(typeof(Animator)),
     RequireComponent(typeof(BoxCollider2D))
 ]
-public class Ennemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private SpriteRenderer _sr;
     private Transform _player;
