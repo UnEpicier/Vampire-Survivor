@@ -38,13 +38,13 @@
     },
     {
       "name": "2 Horizontal beams",
-      "paramName": "laserOnX",
+      "paramName": "HorizontalBeam",
       "maxValue": 1,
       "value": 1
     },
     {
       "name": "2 Vertical beams",
-      "paramName": "laserOnY",
+      "paramName": "VerticalBeam",
       "maxValue": 1,
       "value": 1
     },

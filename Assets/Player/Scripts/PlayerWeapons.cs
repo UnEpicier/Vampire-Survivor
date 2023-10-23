@@ -4,28 +4,27 @@ using UnityEngine;
 [RequireComponent (typeof(PlayerMovements))]
 public class PlayerWeapons : MonoBehaviour
 {
-    [SerializeField] private GameObject laser;
+    [SerializeField] private GameObject _beam;
 
-    [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject _arrow;
 
     private PlayerMovements _pm;
     private PlayerManager _manager;
 
-    private float oldBeamFrequency;
-    private bool oldBeamX;
-    private bool oldBeamY;
+    private float _oldBeamFrequency;
+    private bool _oldHorizontalBeam;
+    private bool _oldVerticalBeam;
 
-    private float oldArrowFrequency;
+    private float _oldArrowFrequency;
 
     private void Start()
     {
         _pm = GetComponent<PlayerMovements>();
         _manager = GetComponent<PlayerManager>();
 
-        oldBeamFrequency = _manager.BeamFrequency;
-        oldBeamX = Convert.ToBoolean(_manager.laserOnX);
-        oldBeamY = Convert.ToBoolean(_manager.laserOnY);
-        oldArrowFrequency = _manager.ArrowFrequency;
+        _oldArrowFrequency = _manager.BeamFrequency;
+        _oldHorizontalBeam = Convert.ToBoolean(_manager.HorizontalBeam);
+        _oldVerticalBeam = Convert.ToBoolean(_manager.VerticalBeam);
 
         InvokeRepeating(nameof(ShootBeam), _manager.BeamFrequency, _manager.BeamFrequency);
         InvokeRepeating(nameof(ShootArrow), _manager.ArrowFrequency, _manager.ArrowFrequency);
@@ -33,7 +32,7 @@ public class PlayerWeapons : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_manager.BeamFrequency != oldBeamFrequency)
+        if (_manager.BeamFrequency != _oldBeamFrequency)
         {
             if (_manager.BeamFrequency > 0f)
             {
@@ -45,24 +44,24 @@ public class PlayerWeapons : MonoBehaviour
                 CancelInvoke(nameof(ShootBeam));
                 ShootBeam();
             }
-            oldBeamFrequency = _manager.BeamFrequency;
+            _oldBeamFrequency = _manager.BeamFrequency;
         }
 
         if (_manager.BeamFrequency == 0)
         {
-            if (oldBeamX != Convert.ToBoolean(_manager.laserOnX) || oldBeamY != Convert.ToBoolean(_manager.laserOnY))
+            if (_oldHorizontalBeam != Convert.ToBoolean(_manager.HorizontalBeam) || _oldVerticalBeam != Convert.ToBoolean(_manager.VerticalBeam))
             {
                 foreach (var beam in GameObject.FindGameObjectsWithTag("Beam"))
                 {
                     Destroy(beam);
                 }
-                oldBeamX = Convert.ToBoolean(_manager.laserOnX);
-                oldBeamY = Convert.ToBoolean(_manager.laserOnY);
+                _oldVerticalBeam = Convert.ToBoolean(_manager.VerticalBeam);
+                _oldVerticalBeam = Convert.ToBoolean(_manager.VerticalBeam);
                 ShootBeam();
             }
         }
 
-        if (_manager.ArrowFrequency != oldArrowFrequency)
+        if (_manager.ArrowFrequency != _oldBeamFrequency)
         {
             CancelInvoke(nameof(ShootArrow));
             InvokeRepeating(nameof(ShootArrow), _manager.ArrowFrequency, _manager.ArrowFrequency);
@@ -71,17 +70,17 @@ public class PlayerWeapons : MonoBehaviour
 
     private void ShootBeam()
     {
-        Instantiate(laser, transform.position, Quaternion.identity, transform);
+        Instantiate(_beam, transform.position, Quaternion.identity, transform);
 
-        if (_manager.laserOnX > 0)
+        if (_manager.HorizontalBeam > 0)
         {
-            Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 180), transform);
+            Instantiate(_beam, transform.position, Quaternion.Euler(0, 0, 180), transform);
         }
 
-        if (_manager.laserOnY > 0)
+        if (_manager.VerticalBeam > 0)
         {
-            Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 90), transform);
-            Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 270), transform);
+            Instantiate(_beam, transform.position, Quaternion.Euler(0, 0, 90), transform);
+            Instantiate(_beam, transform.position, Quaternion.Euler(0, 0, 270), transform);
         }
 
     }
@@ -112,8 +111,8 @@ public class PlayerWeapons : MonoBehaviour
         // Shoot arrow
         if (target != null)
         {
-            GameObject spawnedArrow = Instantiate(arrow, transform.position, Quaternion.identity);
-            spawnedArrow.GetComponent<Arrow>().target = target;
+            GameObject spawnedArrow = Instantiate(_arrow, transform.position, Quaternion.identity);
+            spawnedArrow.GetComponent<Arrow>().Target = target;
         }
     }
 }

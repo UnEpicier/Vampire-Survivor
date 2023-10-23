@@ -6,7 +6,7 @@ using UnityEngine;
 public class StartUI : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text text;
+    private TMP_Text _text;
 
     private void Awake()
     {
@@ -21,9 +21,9 @@ public class StartUI : MonoBehaviour
     private IEnumerator Settlement()
     {
         yield return new WaitForSecondsRealtime(1f);
-        text.SetText("2");
+        _text.SetText("2");
         yield return new WaitForSecondsRealtime(1f);
-        text.SetText("1");
+        _text.SetText("1");
         yield return new WaitForSecondsRealtime(1f);
         Time.timeScale = 1f;
         Destroy(gameObject);

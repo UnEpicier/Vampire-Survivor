@@ -7,7 +7,7 @@ public class PlayerMovements : MonoBehaviour
     private Animator _animator;
     private PlayerManager _pm;
 
-    public bool lookOnRight = true;
+    public bool LookOnRight = true;
 
     private void Start()
     {
@@ -28,11 +28,11 @@ public class PlayerMovements : MonoBehaviour
         if (moveH < 0)
         {
             _sr.flipX = true;
-            lookOnRight = false;
+            LookOnRight = false;
         } else if (moveH > 0)
         {
             _sr.flipX = false;
-            lookOnRight = true;
+            LookOnRight = true;
         }
 
         /** --- update animator -------------------------------------------*/

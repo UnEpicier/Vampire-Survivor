@@ -39,8 +39,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5162058273174827349}
   - {fileID: 4152598028236711869}
-  - {fileID: 4740856695113674186}
   - {fileID: 1598670840411184170}
   - {fileID: 5865658617547034318}
   - {fileID: 749125587594098812}
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f5e7611866dce4ab320c814d279d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookOnRight: 1
+  LookOnRight: 1
 --- !u!114 &7397454076540391921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,14 +273,14 @@ MonoBehaviour:
   BeamDamages: 50
   BeamFrequency: 5
   BeamLife: 0.5
+  HorizontalBeam: 0
+  VerticalBeam: 0
   SwordsHaloRadius: 1
   SwordsDamages: 25
   SwordsQuantity: 5
   ArrowDamages: 15
   ArrowFrequency: 2
   ArrowRange: 5
-  laserOnX: 0
-  laserOnY: 0
   pauseMenu: {fileID: 1161238801143918071}
   deathScreen: {fileID: 8536456763282141865}
   _upgradeScreen: {fileID: 3552072345333957438}
@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce23672c2f6b5bd42adf4a7776a52005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 4893257253370123985, guid: 95cb513377bf0e248bd66d6f7ddae920, type: 3}
-  arrow: {fileID: 6280786298679187013, guid: 856a449688373494987701d49b79a7af, type: 3}
+  _beam: {fileID: 4893257253370123985, guid: 95cb513377bf0e248bd66d6f7ddae920, type: 3}
+  _arrow: {fileID: 6280786298679187013, guid: 856a449688373494987701d49b79a7af, type: 3}
 --- !u!114 &4761054675786854393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6db2d9573175344fa4455c70d440232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mayor: {fileID: 0}
-  Minautor: {fileID: 0}
-  BringerOfDeath: {fileID: 0}
---- !u!1001 &993819705047970090
+  Mayor: {fileID: 6061697268588932327, guid: 797fec3354cfff54e95743a263e79f8f, type: 3}
+  Minautor: {fileID: 1374640533067853523, guid: 5115e3c062ab0d94c993c9a01963c9bb, type: 3}
+  BringerOfDeath: {fileID: 1631754574535955224, guid: 7339e2869a0a9d241b10f5d0a658ff4d, type: 3}
+--- !u!1001 &838647460435930549
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -323,7 +323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3957911104700806788, guid: fd7d128113472244d88a3fc511da99a0, type: 3}
       propertyPath: m_Name
-      value: Halo
+      value: Sword Halo
       objectReference: {fileID: 0}
     - target: {fileID: 5476423095808072928, guid: fd7d128113472244d88a3fc511da99a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -370,10 +370,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7d128113472244d88a3fc511da99a0, type: 3}
---- !u!4 &4740856695113674186 stripped
+--- !u!4 &5162058273174827349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5476423095808072928, guid: fd7d128113472244d88a3fc511da99a0, type: 3}
-  m_PrefabInstance: {fileID: 993819705047970090}
+  m_PrefabInstance: {fileID: 838647460435930549}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1611953582756194365
 PrefabInstance:
@@ -630,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 113215708914507097, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
       propertyPath: m_Name
       value: Upgrade Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 113215708914507097, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4232304121047868955, guid: c16dc07d15aa39d4ba76ea86b13d279e, type: 3}
       propertyPath: m_LocalPosition.x

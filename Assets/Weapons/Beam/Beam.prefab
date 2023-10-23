@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4430932250055150325}
   - component: {fileID: 3148908794889564978}
-  - component: {fileID: 1475843655422961594}
+  - component: {fileID: 7468774557436471496}
   m_Layer: 0
-  m_Name: Laser Beam
+  m_Name: Beam
   m_TagString: Beam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 50, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &1475843655422961594
+--- !u!114 &7468774557436471496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

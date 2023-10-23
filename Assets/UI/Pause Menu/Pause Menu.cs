@@ -45,8 +45,8 @@ public class PauseMenu : MonoBehaviour
         _beamDamages.SetText($"Beam Damages: {_manager.BeamDamages}");
         _beamFrequency.SetText($"Beam Frequency: {_manager.BeamFrequency}s");
         _beamLife.SetText($"Beam Life: {_manager.BeamLife}s");
-        _horizontalBeam.SetText($"Horizontal Beam: {(Convert.ToBoolean(_manager.laserOnX) ? "Yes" : "No")}");
-        _verticalBeam.SetText($"Vertical Beam: {(Convert.ToBoolean(_manager.laserOnY) ? "Yes": "No")}");
+        _horizontalBeam.SetText($"Horizontal Beam: {(Convert.ToBoolean(_manager.HorizontalBeam) ? "Yes" : "No")}");
+        _verticalBeam.SetText($"Vertical Beam: {(Convert.ToBoolean(_manager.VerticalBeam) ? "Yes": "No")}");
         _swordDamages.SetText($"Sword Damages: {_manager.SwordsDamages}");
         _swordQuantity.SetText($"Swords Quantity: {_manager.SwordsQuantity}");
         _swordHaloRadius.SetText($"Sword Halo Radius: {_manager.SwordsHaloRadius * 1.5}m");

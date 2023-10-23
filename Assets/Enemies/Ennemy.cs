@@ -11,7 +11,7 @@ public class Ennemy : MonoBehaviour
     private SpriteRenderer _sr;
     private Transform _player;
 
-    public static float StartLife = 100;
+    public static float StartLife = 100f;
     public float Life;
     public float Speed = .1f;
     public int Damages = 1;

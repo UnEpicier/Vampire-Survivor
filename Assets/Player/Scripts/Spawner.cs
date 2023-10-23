@@ -10,13 +10,13 @@ public class Spawner : MonoBehaviour
 
     private float _radius = 5f;
 
-    [SerializeField] private int spawnedMayors = 0;
-    [SerializeField] private int spawnedMinautor = 0;
-    [SerializeField] private int spawnedBringerOfDeath = 0;
+    private int _spawnedMayors = 0;
+    private int _spawnedMinautor = 0;
+    private int _spawnedBringerOfDeath = 0;
 
-    private readonly int mayorsLimit = 300;
-    private readonly int minautorsLimit = 15;
-    private readonly int bringerOfDeathLimit = 5;
+    private readonly int _mayorsLimit = 300;
+    private readonly int _minautorsLimit = 15;
+    private readonly int _bringerOfDeathLimit = 5;
 
     private void Awake()
     {
@@ -36,9 +36,9 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        spawnedMayors = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Mayor")).Length;
-        spawnedMinautor = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Minautor")).Length;
-        spawnedBringerOfDeath = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Bringer of Death")).Length;
+        _spawnedMayors = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Mayor")).Length;
+        _spawnedMinautor = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Minautor")).Length;
+        _spawnedBringerOfDeath = Array.FindAll(GameObject.FindGameObjectsWithTag("Ennemy"), (value) => value.name.Contains("Bringer of Death")).Length;
     }
 
     private void SpawnWave()
@@ -54,9 +54,9 @@ public class Spawner : MonoBehaviour
             int retries = 0;
 
             while (
-                (enemyName == "Mayor" && spawnedMayors >= mayorsLimit) ||
-                (enemyName == "Minautor" && spawnedMinautor >= minautorsLimit) ||
-                (enemyName == "Bringer of Death" && spawnedBringerOfDeath >= bringerOfDeathLimit)
+                (enemyName == "Mayor" && _spawnedMayors >= _mayorsLimit) ||
+                (enemyName == "Minautor" && _spawnedMinautor >= _minautorsLimit) ||
+                (enemyName == "Bringer of Death" && _spawnedBringerOfDeath >= _bringerOfDeathLimit)
             )
             {
                 enemyToSpawn = ChooseEnemy();
@@ -72,13 +72,13 @@ public class Spawner : MonoBehaviour
             switch (enemyName)
             {
                 case "Mayor":
-                    spawnedMayors++;
+                    _spawnedMayors++;
                     break;
                 case "Minautor":
-                    spawnedMinautor++;
+                    _spawnedMinautor++;
                     break;
                 case "Bringer":
-                    spawnedBringerOfDeath++;
+                    _spawnedBringerOfDeath++;
                     break;
             }
 

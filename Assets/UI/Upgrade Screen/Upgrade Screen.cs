@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,7 +10,7 @@ using Random = UnityEngine.Random;
 public class UpgradeScreen : MonoBehaviour
 {
     [SerializeField]
-    private List<Button> buttons = new();
+    private List<Button> _buttons = new();
 
     private Upgrade[] _upgrades;
     private PlayerManager _manager;
@@ -26,7 +25,7 @@ public class UpgradeScreen : MonoBehaviour
 
     public void GenerateChoice()
     {
-        Upgrade[] choosen = new Upgrade[buttons.Count];
+        Upgrade[] choosen = new Upgrade[_buttons.Count];
 
         while (choosen.Length != choosen.Distinct().Count())
         {
@@ -34,7 +33,7 @@ public class UpgradeScreen : MonoBehaviour
             {
                 Upgrade choosenUpgrade = _upgrades[Random.Range(0, _upgrades.Length)];
 
-                bool beamCondition = (choosenUpgrade.paramName == "laserOnX" && _manager.laserOnX >= 1) || (choosenUpgrade.paramName == "laserOnY" && _manager.laserOnY >= 1);
+                bool beamCondition = (choosenUpgrade.paramName == "HorizontalBeam" && _manager.HorizontalBeam >= 1) || (choosenUpgrade.paramName == "VerticalBeam" && _manager.VerticalBeam >= 1);
                 bool beamFrequencyCondition = (choosenUpgrade.paramName == "BeamFrequency" && _manager.BeamFrequency <= 0);
                 bool arrowFrequency = (choosenUpgrade.paramName == "ArrowFrequency" && _manager.ArrowFrequency <= 0.5f);
 
@@ -42,7 +41,7 @@ public class UpgradeScreen : MonoBehaviour
                 {
                     choosenUpgrade = _upgrades[Random.Range(0, _upgrades.Length)];
 
-                    beamCondition = (choosenUpgrade.paramName == "laserOnX" && _manager.laserOnX >= 1) || (choosenUpgrade.paramName == "laserOnY" && _manager.laserOnY >= 1);
+                    beamCondition = (choosenUpgrade.paramName == "HorizontalBeam" && _manager.HorizontalBeam >= 1) || (choosenUpgrade.paramName == "VerticalBeam" && _manager.VerticalBeam >= 1);
                     beamFrequencyCondition = (choosenUpgrade.paramName == "BeamFrequency" && _manager.BeamFrequency <= 0);
                     arrowFrequency = (choosenUpgrade.paramName == "ArrowFrequency" && _manager.ArrowFrequency <= 0.5f);
                 };
@@ -51,7 +50,7 @@ public class UpgradeScreen : MonoBehaviour
             }
         }
 
-        foreach (var button in buttons.Select((value, i) => new {i, value}))
+        foreach (var button in _buttons.Select((value, i) => new {i, value}))
         {
             button.value.GetComponentInChildren<TMP_Text>().SetText(choosen[button.i].name);
             button.value.GetComponent<Button>().onClick.AddListener(() => { UpgradePlayer(button.value, _upgrades, _manager); });

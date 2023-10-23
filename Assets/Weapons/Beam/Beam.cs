@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 [RequireComponent (typeof(BoxCollider2D))]
-public class LaserBeam : MonoBehaviour
+public class Beam : MonoBehaviour
 {
     private PlayerManager _manager;
     private PlayerMovements _movements;
@@ -20,9 +19,9 @@ public class LaserBeam : MonoBehaviour
 
     private void Update()
     {
-        if (_manager.laserOnX == 0)
+        if (_manager.HorizontalBeam == 0)
         {
-            if (!_movements.lookOnRight)
+            if (!_movements.LookOnRight)
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             } else

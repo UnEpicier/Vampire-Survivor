@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5476423095808072928}
   - component: {fileID: -8230784050683220836}
   m_Layer: 0
-  m_Name: Halo
+  m_Name: Sword Halo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

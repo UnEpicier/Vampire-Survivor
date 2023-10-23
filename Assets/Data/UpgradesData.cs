@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class UpgradesData : MonoBehaviour
 {
-    [SerializeField] private TextAsset upgradesJSON;
+    [SerializeField] private TextAsset _upgradesJSON;
 
     public Upgrades upgrades;
 
     private void Awake()
     {
-        upgrades = JsonUtility.FromJson<Upgrades>(upgradesJSON.text);
+        upgrades = JsonUtility.FromJson<Upgrades>(_upgradesJSON.text);
     }
 }
 

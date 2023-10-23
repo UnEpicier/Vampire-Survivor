@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Halo : MonoBehaviour
+public class SwordHalo : MonoBehaviour
 {
     [SerializeField]
     private GameObject _sword;
 
     private PlayerManager _manager;
-    private List<GameObject> swords = new();
+    private List<GameObject> _swords = new();
 
     private float _oldRadius;
     private int _oldSwordsCount;
@@ -27,7 +27,7 @@ public class Halo : MonoBehaviour
                 Quaternion.identity,
                 transform
             );
-            swords.Add(sword);
+            _swords.Add(sword);
         }
     }
 
@@ -57,9 +57,9 @@ public class Halo : MonoBehaviour
     {
         for (int i = 0; i < _oldSwordsCount; i++)
         {
-            Destroy(swords[i]);
+            Destroy(_swords[i]);
         }
-        swords.Clear();
+        _swords.Clear();
 
         float angle = Mathf.PI * 2f / _manager.SwordsQuantity;
         for (int i = 0; i < _manager.SwordsQuantity; i++)
@@ -70,7 +70,7 @@ public class Halo : MonoBehaviour
                 Quaternion.identity,
                 transform
             );
-            swords.Add(sword);
+            _swords.Add(sword);
         }
     }
 
@@ -78,9 +78,9 @@ public class Halo : MonoBehaviour
     {
         for (int i = 0; i < _manager.SwordsQuantity; i++)
         {
-            DestroyImmediate(swords[i]);
+            DestroyImmediate(_swords[i]);
         }
-        swords.Clear();
+        _swords.Clear();
 
         float angle = Mathf.PI * 2f / _manager.SwordsQuantity;
         for (int i = 0; i < _manager.SwordsQuantity; i++)
@@ -91,7 +91,7 @@ public class Halo : MonoBehaviour
                 Quaternion.identity,
                 transform
             );
-            swords.Add(sword);
+            _swords.Add(sword);
         }
     }
 }

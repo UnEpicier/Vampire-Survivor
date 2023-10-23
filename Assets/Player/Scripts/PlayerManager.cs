@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     public float BeamDamages = 50f;
     public float BeamFrequency = 5f;
     public float BeamLife = 0.5f;
+    public float HorizontalBeam = 0f;
+    public float VerticalBeam = 0f;
 
     public float SwordsHaloRadius = 1f;
     public float SwordsDamages = 25f;
@@ -25,9 +27,6 @@ public class PlayerManager : MonoBehaviour
     public float ArrowDamages = 15f;
     public float ArrowFrequency = 2f;
     public float ArrowRange = 5f;
-
-    public float laserOnX = 0f;
-    public float laserOnY = 0f;
 
     [SerializeField]
     private GameObject pauseMenu;

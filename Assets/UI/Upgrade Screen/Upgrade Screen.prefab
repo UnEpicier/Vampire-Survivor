@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0d6eae981931e49af7552730883326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
+  _buttons:
   - {fileID: 84359638430006894}
   - {fileID: 6549512925133430735}
   - {fileID: 451137559467290092}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132f6eb0a04c6614d9ebb227a443e2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradesJSON: {fileID: 4900000, guid: aaa2ab8454f62084e836d4c194574793, type: 3}
+  _upgradesJSON: {fileID: 4900000, guid: aaa2ab8454f62084e836d4c194574793, type: 3}
   upgrades:
     upgrades: []
 --- !u!1 &587910270085467340

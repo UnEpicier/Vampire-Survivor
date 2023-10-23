@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public GameObject target;
+    public GameObject Target;
 
     private PlayerManager _manager;
 
@@ -13,12 +13,12 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if (target == null)
+        if (Target == null)
         {
             Destroy(gameObject);
             return;
         }
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 20f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, 20f * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
