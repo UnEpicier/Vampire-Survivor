@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -26,6 +25,7 @@ public class StartUI : MonoBehaviour
         _text.SetText("1");
         yield return new WaitForSecondsRealtime(1f);
         Time.timeScale = 1f;
+        GameManager.GameStarted = true;
         Destroy(gameObject);
     }
 }

@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
             ArrowFrequency = 0.5f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.GameStarted)
         {
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
