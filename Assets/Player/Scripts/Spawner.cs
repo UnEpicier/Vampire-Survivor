@@ -10,9 +10,9 @@ public class Spawner : MonoBehaviour
 
     private float _radius = 5f;
 
-    private int spawnedMayors = 0;
-    private int spawnedMinautor = 0;
-    private int spawnedBringerOfDeath = 0;
+    [SerializeField] private int spawnedMayors = 0;
+    [SerializeField] private int spawnedMinautor = 0;
+    [SerializeField] private int spawnedBringerOfDeath = 0;
 
     private readonly int mayorsLimit = 300;
     private readonly int minautorsLimit = 15;
@@ -77,7 +77,7 @@ public class Spawner : MonoBehaviour
                 case "Minautor":
                     spawnedMinautor++;
                     break;
-                case "Bringer of Death":
+                case "Bringer":
                     spawnedBringerOfDeath++;
                     break;
             }
