@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnWave), 5f, 5f);
+        InvokeRepeating(nameof(SpawnWave), 0f, 5f);
     }
 
     private void OnDrawGizmos()
