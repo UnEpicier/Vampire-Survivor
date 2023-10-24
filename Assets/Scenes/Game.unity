@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4053184713476310524, guid: 4ce1de8b166656e4a97422e7ac85530b, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6939379890176807053, guid: 4ce1de8b166656e4a97422e7ac85530b, type: 3}
       propertyPath: m_Name
       value: Start UI
@@ -360,25 +364,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1161238801143918071, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1784956759114531697, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2777059098949019429, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3552072345333957438, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599206546858926089, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3622515600777588477, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -418,34 +406,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3622515600777588477, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4761054675786854393, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: Mayor
-      value: 
-      objectReference: {fileID: 6061697268588932327, guid: 797fec3354cfff54e95743a263e79f8f, type: 3}
-    - target: {fileID: 4761054675786854393, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: Minautor
-      value: 
-      objectReference: {fileID: 1374640533067853523, guid: 5115e3c062ab0d94c993c9a01963c9bb, type: 3}
-    - target: {fileID: 4761054675786854393, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: BringerOfDeath
-      value: 
-      objectReference: {fileID: 1631754574535955224, guid: 7339e2869a0a9d241b10f5d0a658ff4d, type: 3}
-    - target: {fileID: 7600806342610375037, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: upgrades.upgrades.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536456763282141865, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8872681192320925159, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8872681192320925159, guid: 05d927a24df204541afbb77f1af3a9a2, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
