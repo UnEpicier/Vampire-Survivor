@@ -17,6 +17,9 @@ public class EndScene : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Game");
+        GameManager.MayorKills = 0;
+        GameManager.MinautorKills = 0;
+        GameManager.BringerOfDeathKills = 0;
     }
 
     public void MainMenu()
